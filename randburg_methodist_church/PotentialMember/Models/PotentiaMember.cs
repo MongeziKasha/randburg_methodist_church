@@ -1,4 +1,4 @@
-﻿namespace randburg_methodist_church.PotentialMember.Models
+﻿namespace randburg_methodist_church.src.PotentialMember.Models
 {
     public class PotentiaMember
     {

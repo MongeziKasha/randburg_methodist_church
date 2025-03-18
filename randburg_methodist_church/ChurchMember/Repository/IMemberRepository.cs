@@ -1,4 +1,4 @@
-﻿namespace randburg_methodist_church.ChurchMember.Repository
+﻿namespace randburg_methodist_church.src.ChurchMember.Repository
 {
     public interface IMemberRepository
     {

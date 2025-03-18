@@ -1,4 +1,4 @@
-﻿namespace randburg_methodist_church.ChurchMember.Models
+﻿namespace randburg_methodist_church.src.ChurchMember.Models
 {
     public class ChurchMember
     {
