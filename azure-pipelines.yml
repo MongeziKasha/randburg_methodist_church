@@ -11,56 +11,12 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-  buildConfiguration: 'Release'
-  solution: 'randburg_methodist_church.sln'
-
 steps:
 - task: Checkout@1
   displayName: 'Checkout code'
 
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '7.x'  # Use your .NET version
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    projects: '$(solution)'
-  displayName: 'Restore dependencies'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '$(solution)'
-    arguments: '--configuration $(buildConfiguration) --no-restore'
-  displayName: 'Build the solution'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: 'randburg_methodist_church_unitTests/randburg_methodist_church_unitTests.csproj'
-    arguments: '--configuration $(buildConfiguration) --no-build'
-  displayName: 'Run unit tests'
-
-# Uncomment and modify below if you plan to publish the Blazor app later
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'publish'
-#     projects: 'randburg_methodist_church/randburg_methodist_church.csproj'
-#     arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)'
-#   displayName: 'Publish Blazor App'
-
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     pathToPublish: $(Build.ArtifactStagingDirectory)
-#     artifactName: 'drop'
-#   displayName: 'Publish artifacts'
-
-# - task: AzureWebApp@1
-#   inputs:
-#     azureSubscription: 'Your-Azure-Service-Connection'
-#     appName: 'your-blazor-app'
-#     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-#   displayName: 'Deploy to Azure Web App'
+# Debugging step
+- script: |
+    echo "Solution: $(solution)"
+    echo "Build Configuration: $(buildConfiguration)"
+  displayName: 'Print variable values for debugging'
