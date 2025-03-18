@@ -1,11 +1,19 @@
 trigger:
-  - main  # Runs the pipeline when you push to the main branch
+  branches:
+    include:
+      - '*'  # Runs pipeline on push to ANY branch
+
+pr:
+  branches:
+    include:
+      - Main  # Runs pipeline when a PR is created for ANY branch
 
 pool:
-  vmImage: 'ubuntu-latest'  # You can use windows-latest if needed
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
+  solution: 'randburg_methodist_church.sln'
 
 steps:
 - name: Checkout code
@@ -14,20 +22,19 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '7.x'  # Use your .NET version
-    installationPath: $(Agent.ToolsDirectory)/dotnet
+    version: '7.x'  # Change this to your .NET version
 
-- name: Restore Dependencies
-  run: dotnet restore
+- name: Restore dependencies
+  run: dotnet restore $(solution)
 
-- name: Build the Solution
-  run: dotnet build --configuration $(buildConfiguration) --no-restore
+- name: Build the solution
+  run: dotnet build $(solution) --configuration $(buildConfiguration) --no-restore
 
-- name: Run Unit Tests
-  run: dotnet test --configuration $(buildConfiguration) --no-build
+- name: Run unit tests
+  run: dotnet test randburg_methodist_church_unitTests/randburg_methodist_church_unitTests.csproj --configuration $(buildConfiguration) --no-build
 
 - name: Publish Blazor App
-  run: dotnet publish -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+  run: dotnet publish randburg_methodist_church/randburg_methodist_church.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
   inputs:
