@@ -6,7 +6,7 @@ trigger:
 pr:
   branches:
     include:
-      - main  # Runs pipeline when a PR is created for ANY branch targeting 'main'
+      - main  # Runs pipeline when a PR is created for any branch targeting 'main'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,34 +16,51 @@ variables:
   solution: 'randburg_methodist_church.sln'
 
 steps:
-- name: Checkout code
-  uses: actions/checkout@v3
+- task: Checkout@2
+  displayName: 'Checkout code'
 
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '7.x'  # Change this to your .NET version
+    version: '7.x'  # Use your .NET version
 
-- name: Restore dependencies
-  run: dotnet restore $(solution)
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '$(solution)'
+  displayName: 'Restore dependencies'
 
-- name: Build the solution
-  run: dotnet build $(solution) --configuration $(buildConfiguration) --no-restore
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '$(solution)'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+  displayName: 'Build the solution'
 
-- name: Run unit tests
-  run: dotnet test randburg_methodist_church_unitTests/randburg_methodist_church_unitTests.csproj --configuration $(buildConfiguration) --no-build
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: 'randburg_methodist_church_unitTests/randburg_methodist_church_unitTests.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-build'
+  displayName: 'Run unit tests'
 
 # Uncomment and modify below if you plan to publish the Blazor app later
-# - name: Publish Blazor App
-#   run: dotnet publish randburg_methodist_church/randburg_methodist_church.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'publish'
+#     projects: 'randburg_methodist_church/randburg_methodist_church.csproj'
+#     arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)'
+#   displayName: 'Publish Blazor App'
 
 # - task: PublishBuildArtifacts@1
 #   inputs:
 #     pathToPublish: $(Build.ArtifactStagingDirectory)
 #     artifactName: 'drop'
+#   displayName: 'Publish artifacts'
 
 # - task: AzureWebApp@1
 #   inputs:
 #     azureSubscription: 'Your-Azure-Service-Connection'
 #     appName: 'your-blazor-app'
 #     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+#   displayName: 'Deploy to Azure Web App'
