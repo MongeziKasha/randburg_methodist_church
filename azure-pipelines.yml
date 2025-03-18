@@ -33,16 +33,16 @@ steps:
 - name: Run unit tests
   run: dotnet test randburg_methodist_church_unitTests/randburg_methodist_church_unitTests.csproj --configuration $(buildConfiguration) --no-build
 
-- name: Publish Blazor App
-  run: dotnet publish randburg_methodist_church/randburg_methodist_church.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+# - name: Publish Blazor App
+#   run: dotnet publish randburg_methodist_church/randburg_methodist_church.csproj -c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: 'drop'
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     pathToPublish: $(Build.ArtifactStagingDirectory)
+#     artifactName: 'drop'
 
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Your-Azure-Service-Connection'
-    appName: 'your-blazor-app'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+# - task: AzureWebApp@1
+#   inputs:
+#     azureSubscription: 'Your-Azure-Service-Connection'
+#     appName: 'your-blazor-app'
+#     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
