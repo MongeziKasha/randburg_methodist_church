@@ -16,8 +16,7 @@ variables:
   solution: 'randburg_methodist_church.sln'
 
 steps:
-- name: Checkout code
-  uses: actions/checkout@v3
+- Checkout code: self
 
 - task: UseDotNet@2
   inputs:
