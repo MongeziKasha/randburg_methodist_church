@@ -1,6 +1,12 @@
-﻿namespace randburg_methodist_church.src.PotentialMember.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace randburg_methodist_church_DAL
 {
-    public class PotentiaMember
+    class PotentialMember
     {
         public Guid Potential_Id { get; set; }
         public string Potential_Fullname { get; set; }

@@ -19,10 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include=".infrastructure\.github\workflows" />
-    <None Include=".infrastructure\azure-pipelines.yml" />
-    <None Include=".infrastructure\docker" />
-  </ItemGroup>
-
 </Project>
