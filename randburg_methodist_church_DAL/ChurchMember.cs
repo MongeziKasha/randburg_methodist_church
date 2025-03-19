@@ -1,6 +1,12 @@
-﻿namespace randburg_methodist_church.src.ChurchMember.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace randburg_methodist_church_DAL
 {
-    public class ChurchMember
+    class ChurchMember
     {
         public Guid Member_Id { get; set; }
         public string Member_Fullname { get; set; }

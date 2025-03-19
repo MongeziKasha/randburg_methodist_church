@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "randburg_methodist_church",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "randburg_methodist_church_unitTests", "randburg_methodist_church_unitTests\randburg_methodist_church_unitTests.csproj", "{FE7FB6B0-2590-4779-876C-BD221AC75C9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "randburg_methodist_church_DAL", "randburg_methodist_church_DAL\randburg_methodist_church_DAL.csproj", "{377DCFD6-9C08-4E73-89E4-9F95454481F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "randburg_methodist_church_Services", "randburg_methodist_church_Services\randburg_methodist_church_Services.csproj", "{C3AC3D8B-2700-47D5-B8CF-9151E32CE05A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "randburg_methodist_church_Lib", "randburg_methodist_church_Lib\randburg_methodist_church_Lib.csproj", "{2F2A168A-39BC-44CF-BF2B-409AE7891E08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{FE7FB6B0-2590-4779-876C-BD221AC75C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE7FB6B0-2590-4779-876C-BD221AC75C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE7FB6B0-2590-4779-876C-BD221AC75C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377DCFD6-9C08-4E73-89E4-9F95454481F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377DCFD6-9C08-4E73-89E4-9F95454481F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377DCFD6-9C08-4E73-89E4-9F95454481F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377DCFD6-9C08-4E73-89E4-9F95454481F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AC3D8B-2700-47D5-B8CF-9151E32CE05A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AC3D8B-2700-47D5-B8CF-9151E32CE05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AC3D8B-2700-47D5-B8CF-9151E32CE05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AC3D8B-2700-47D5-B8CF-9151E32CE05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2A168A-39BC-44CF-BF2B-409AE7891E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2A168A-39BC-44CF-BF2B-409AE7891E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2A168A-39BC-44CF-BF2B-409AE7891E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2A168A-39BC-44CF-BF2B-409AE7891E08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
