@@ -1,10 +1,16 @@
 using randburg_methodist_church.Components;
+using randburg_methodist_church_DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddDbContext<RandburgChurchDAL>(options =>
+    options.UseCosmos(
+        builder.Configuration["CosmosDB:Account"],
+        builder.Configuration["CosmosDB:Key"],
+        builder.Configuration["CosmosDB:DatabaseName"]));
 
 var app = builder.Build();
 
