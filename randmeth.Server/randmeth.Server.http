@@ -1,0 +1,6 @@
+@randmeth.Server_HostAddress = http://localhost:5092
+
+GET {{randmeth.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
